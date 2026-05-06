@@ -429,16 +429,28 @@ a { color: inherit; text-decoration: none; }
 .viz-label {
   position: absolute;
   font-family: var(--mono);
-  font-size: 0.65rem;
+  font-size: 0.85rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
+  font-weight: 600;
 }
-.viz-label.tl { top: 18px; left: 42px; color: var(--paper-3); }
+.viz-label.tl { top: 18px; left: 42px; color: var(--lime); }
 .viz-label.br { bottom: 18px; right: 42px; color: var(--lime); }
+
+.viz-source {
+  position: absolute;
+  bottom: 16px; left: 42px; right: 42px;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  color: var(--ink-4);
+  text-align: left;
+}
+.viz-source em { color: var(--paper-3); font-style: italic; }
 
 .bars {
   position: absolute;
-  inset: 56px 56px 56px 56px;
+  inset: 64px 56px 70px 56px;
   display: flex;
   align-items: stretch;
   gap: 1.2rem;
@@ -456,8 +468,8 @@ a { color: inherit; text-decoration: none; }
 .bar { width: 100%; background: var(--lime); position: relative; transition: height 1.4s cubic-bezier(.2,.8,.2,1); height: 0; }
 .bar.crit { background: var(--rust); }
 .bar-val { position: absolute; top: -2rem; left: 0; right: 0; text-align: center; font-family: var(--mono); font-size: 1.15rem; color: var(--paper); font-weight: 700; }
-.bar-lbl { font-family: var(--serif); font-size: 1.4rem; color: var(--paper); text-align: center; }
-.bar-sub { font-family: var(--mono); font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-4); font-weight: 600; }
+.bar-lbl { font-family: var(--serif); font-size: 1.65rem; color: var(--paper); text-align: center; line-height: 1; }
+.bar-sub { font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-4); font-weight: 600; text-align: center; }
 
 /* ============== SLIDE 03 — CHALLENGES ============== */
 .s-challenge .slide-inner {
@@ -942,11 +954,12 @@ a { color: inherit; text-decoration: none; }
   .s-moat .slide-inner { gap: 1rem; }
   .moat-body { gap: 2rem; }
   .flywheel { max-width: 360px; }
-  .shield { padding: 0.65rem 0.95rem; }
-  .shield-icon { width: 38px; height: 44px; }
-  .shield-icon svg { width: 18px; height: 18px; }
-  .shield-title { font-size: 1.05rem; margin-bottom: 0.18rem; }
-  .shield-body { font-size: 0.85rem; line-height: 1.35; }
+  .shields { gap: 0.5rem; }
+  .shield { padding: 0.55rem 0.9rem; }
+  .shield-icon { width: 36px; height: 40px; }
+  .shield-icon svg { width: 16px; height: 16px; }
+  .shield-title { font-size: 0.95rem; margin-bottom: 0.15rem; }
+  .shield-body { font-size: 0.78rem; line-height: 1.3; }
   .bottom-line { padding: 0.85rem 1.5rem; }
   .bl-num { font-size: clamp(2rem, 4vw, 3.2rem); margin-bottom: 0.15rem; }
   .bl-lbl { font-size: 0.85rem; }
@@ -1027,22 +1040,24 @@ a { color: inherit; text-decoration: none; }
       <div class="slide-inner">
         <div class="problem-text-stack">
           <div class="eyebrow" data-anim>01 / The Problem</div>
-          <h2 class="h-display" data-anim style="--d: 0.1s">A supply chain<br>priced in <em class="rust">geopolitics</em>.</h2>
+          <h2 class="h-display" data-anim style="--d: 0.1s">Critical materials<br>repriced by <em class="rust">geopolitics</em>.</h2>
           <p class="problem-strap" data-anim style="--d: 0.25s">
-            Rare-earth minerals are <mark>spiking in price</mark> while supply chains rupture along political fault-lines. Manufacturing local replacements is <strong>existential</strong>.
+            Between <strong>2020 and 2022</strong>, lithium spot prices rose <mark>~8&times;</mark>, neodymium <mark>~4&times;</mark>, cobalt and dysprosium doubled. Volatility tracked the geopolitics, not the demand curve.
           </p>
         </div>
 
         <div class="problem-viz" data-anim="scale" style="--d: 0.35s">
           <div class="crosshair tl"></div><div class="crosshair tr"></div>
           <div class="crosshair bl"></div><div class="crosshair br"></div>
+          <div class="viz-label tl">Peak price multiplier &middot; 2020 &rarr; 2022</div>
           <div class="bars" id="bars">
-            <div class="bar-col"><div class="bar-area"><div class="bar crit" data-h="87%"><span class="bar-val">87%</span></div></div><div class="bar-lbl">Rare Earths</div><div class="bar-sub">CHN</div></div>
-            <div class="bar-col"><div class="bar-area"><div class="bar crit" data-h="76%"><span class="bar-val">76%</span></div></div><div class="bar-lbl">Cobalt</div><div class="bar-sub">CHN/COD</div></div>
-            <div class="bar-col"><div class="bar-area"><div class="bar" data-h="58%"><span class="bar-val">58%</span></div></div><div class="bar-lbl">Lithium</div><div class="bar-sub">AUS/CHN</div></div>
-            <div class="bar-col"><div class="bar-area"><div class="bar" data-h="40%"><span class="bar-val">40%</span></div></div><div class="bar-lbl">Copper</div><div class="bar-sub">CHL/PER</div></div>
-            <div class="bar-col"><div class="bar-area"><div class="bar crit" data-h="68%"><span class="bar-val">68%</span></div></div><div class="bar-lbl">Graphite</div><div class="bar-sub">CHN</div></div>
+            <div class="bar-col"><div class="bar-area"><div class="bar crit" data-h="92%"><span class="bar-val">8&times;</span></div></div><div class="bar-lbl">Li</div><div class="bar-sub">Lithium</div></div>
+            <div class="bar-col"><div class="bar-area"><div class="bar crit" data-h="46%"><span class="bar-val">4&times;</span></div></div><div class="bar-lbl">Nd</div><div class="bar-sub">Neodymium</div></div>
+            <div class="bar-col"><div class="bar-area"><div class="bar" data-h="26%"><span class="bar-val">2.2&times;</span></div></div><div class="bar-lbl">Dy</div><div class="bar-sub">Dysprosium</div></div>
+            <div class="bar-col"><div class="bar-area"><div class="bar" data-h="24%"><span class="bar-val">2&times;</span></div></div><div class="bar-lbl">Co</div><div class="bar-sub">Cobalt</div></div>
+            <div class="bar-col"><div class="bar-area"><div class="bar" data-h="20%"><span class="bar-val">1.6&times;</span></div></div><div class="bar-lbl">Ni</div><div class="bar-sub">Nickel</div></div>
           </div>
+          <div class="viz-source">Sources: IEA <em>Critical Minerals Market Review</em> 2024 &middot; USGS <em>Mineral Commodity Summaries</em> 2024</div>
         </div>
       </div>
     </section>
@@ -1094,10 +1109,10 @@ a { color: inherit; text-decoration: none; }
         <div class="solution-head">
           <div>
             <div class="eyebrow" data-anim>03 / The Solution</div>
-            <h2 class="h-display" data-anim style="--d: 0.1s">A foundry<br>that <em>thinks</em>, then makes.</h2>
+            <h2 class="h-display" data-anim style="--d: 0.1s">Two halves.<br>One missing <em>bridge</em>.</h2>
           </div>
           <p data-anim style="--d: 0.25s">
-            A closed-loop platform that pairs <strong>generative AI</strong> with <strong>autonomous robotics</strong> to design new critical materials on demand. Not stumble upon them. Specs in. Validated recipe out.
+            <strong>Generative AI</strong> can now design new materials. <strong>Robotic labs</strong> can now synthesize them at scale. Today the loop between them runs through human chemists. Slow, manual, and every lab failure is thrown away. <strong>We close the loop with AI. And we keep the failures.</strong>
           </p>
         </div>
 
@@ -1155,34 +1170,34 @@ a { color: inherit; text-decoration: none; }
           </svg>
 
           <div class="loop-node-card r">
-            <div class="loop-node-num">01 / INPUT</div>
-            <div class="loop-node-title">Material specs.</div>
-            <div class="loop-node-body">Target properties: conductivity, magnetic strength, thermal stability.</div>
+            <div class="loop-node-num">01 / SPEC</div>
+            <div class="loop-node-title">Target in.</div>
+            <div class="loop-node-body">Conductivity, magnetic strength, thermal stability, cost.</div>
           </div>
           <div class="loop-node-card tr">
-            <div class="loop-node-num">02 / GEN</div>
-            <div class="loop-node-title">AI engine.</div>
-            <div class="loop-node-body">Generative models propose novel formulations to spec.</div>
+            <div class="loop-node-num">02 / AI</div>
+            <div class="loop-node-title">Generative design.</div>
+            <div class="loop-node-body">Models propose novel formulations engineered to spec.</div>
           </div>
           <div class="loop-node-card tl">
-            <div class="loop-node-num">03 / RECIPE</div>
-            <div class="loop-node-title">The recipe.</div>
-            <div class="loop-node-body">Composition + synthesis route. Actionable. Feeds the lab.</div>
+            <div class="loop-node-num">03 / BRIDGE</div>
+            <div class="loop-node-title">Recipe to protocol.</div>
+            <div class="loop-node-body">Composition + synthesis route. Today: human. With us: automated.</div>
           </div>
           <div class="loop-node-card l">
-            <div class="loop-node-num">04 / VALIDATE</div>
-            <div class="loop-node-title">Robotic lab.</div>
-            <div class="loop-node-body">Autonomous SDL runs thousands of experiments. 24/7.</div>
+            <div class="loop-node-num">04 / ROBOT</div>
+            <div class="loop-node-title">Autonomous synthesis.</div>
+            <div class="loop-node-body">SDL runs thousands of parallel experiments, 24/7.</div>
           </div>
           <div class="loop-node-card bl">
-            <div class="loop-node-num">05 / RETRAIN</div>
-            <div class="loop-node-title">The loop.</div>
-            <div class="loop-node-body">Lab results, successes and failures, retrain the engine.</div>
+            <div class="loop-node-num">05 / CAPTURE</div>
+            <div class="loop-node-title">Every result. Esp. failures.</div>
+            <div class="loop-node-body">Today: lab failures are wasted. Here: every result is logged.</div>
           </div>
           <div class="loop-node-card br">
-            <div class="loop-node-num">06 / OUTPUT</div>
-            <div class="loop-node-title">Material prototype.</div>
-            <div class="loop-node-body">Validated, production-ready, engineered to spec.</div>
+            <div class="loop-node-num">06 / REINFORCE</div>
+            <div class="loop-node-title">AI gets sharper.</div>
+            <div class="loop-node-body">Failures retrain the model. Each cycle = better predictions.</div>
           </div>
         </div>
         </div>
@@ -1194,7 +1209,7 @@ a { color: inherit; text-decoration: none; }
       <div class="slide-inner">
         <div>
           <div class="eyebrow" data-anim>04 / Our Moat</div>
-          <h2 class="h-display" data-anim style="--d: 0.1s; font-size: clamp(2rem, 4.5vw, 4rem);">The flywheel. Why we <em>win</em>.</h2>
+          <h2 class="h-display" data-anim style="--d: 0.1s; font-size: clamp(2rem, 4.5vw, 4rem);">A new <em>data flywheel</em>.<br>Built from failures.</h2>
         </div>
 
         <div class="moat-body">
@@ -1241,16 +1256,16 @@ a { color: inherit; text-decoration: none; }
 
               <g class="fly-rotate" style="animation-duration: 60s;">
                 <g font-family="JetBrains Mono" font-size="16" font-weight="700" letter-spacing="2" fill="#14130f" text-anchor="middle">
-                  <text transform="translate(0 -195) rotate(0)" x="300" y="300">SYNTHESIZE</text>
-                  <text transform="translate(186 -60) rotate(72)" x="300" y="300">FILTER</text>
-                  <text transform="translate(115 158) rotate(144)" x="300" y="300">VALIDATE</text>
-                  <text transform="translate(-115 158) rotate(216)" x="300" y="300">PATENT</text>
-                  <text transform="translate(-186 -60) rotate(288)" x="300" y="300">RE-INJECT</text>
+                  <text transform="translate(0 -195) rotate(0)" x="300" y="300">PROPOSE</text>
+                  <text transform="translate(186 -60) rotate(72)" x="300" y="300">SYNTHESIZE</text>
+                  <text transform="translate(115 158) rotate(144)" x="300" y="300">MEASURE</text>
+                  <text transform="translate(-115 158) rotate(216)" x="300" y="300">CAPTURE</text>
+                  <text transform="translate(-186 -60) rotate(288)" x="300" y="300">RETRAIN</text>
                 </g>
               </g>
 
-              <text x="300" y="298" text-anchor="middle" font-family="Fraunces" font-style="italic" font-size="34" fill="#14130f" font-weight="400">Flywheel</text>
-              <text x="300" y="324" text-anchor="middle" font-family="JetBrains Mono" font-size="13" letter-spacing="2" fill="#14130f" font-weight="700">5 STAGES</text>
+              <text x="300" y="296" text-anchor="middle" font-family="Fraunces" font-style="italic" font-size="30" fill="#14130f" font-weight="400">Failure</text>
+              <text x="300" y="324" text-anchor="middle" font-family="Fraunces" font-style="italic" font-size="30" fill="#14130f" font-weight="400">data</text>
             </svg>
           </div>
 
@@ -1258,29 +1273,22 @@ a { color: inherit; text-decoration: none; }
             <div class="shield" data-anim style="--d: 0.3s">
               <div class="shield-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2L4 6v6c0 5 3.5 9 8 10 4.5-1 8-5 8-10V6l-8-4z"/><path d="M9 12l2 2 4-4"/></svg></div>
               <div>
-                <h4 class="shield-title">Negative-Data Fortress.</h4>
-                <p class="shield-body">A proprietary corpus of lab failures makes our model <em>physics-accurate</em> where competitors guess.</p>
+                <h4 class="shield-title">Negative-data corpus.</h4>
+                <p class="shield-body">A proprietary dataset of every failed synthesis. <em>Nobody else has it.</em></p>
               </div>
             </div>
             <div class="shield" data-anim style="--d: 0.4s">
-              <div class="shield-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="4" width="16" height="16"/><path d="M4 9h16M9 4v16M14 4v16M4 14h16"/></svg></div>
+              <div class="shield-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="3"/><path d="M3 12l4-1 5-9 5 9 4 1"/><path d="M3 12l4 1 5 9 5-9 4-1"/></svg></div>
               <div>
-                <h4 class="shield-title">The Patent Wall.</h4>
-                <p class="shield-body">We protect <em>physical molecules</em>. Composition-of-matter patents create hard legal barriers.</p>
+                <h4 class="shield-title">Compounding cycles.</h4>
+                <p class="shield-body">Each loop sharpens the model. <em>Competitors can't catch up.</em></p>
               </div>
             </div>
             <div class="shield" data-anim style="--d: 0.5s">
-              <div class="shield-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12l4-8 5 8 5-8 4 8"/><path d="M3 12v6h18v-6"/></svg></div>
+              <div class="shield-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="4" width="16" height="16"/><path d="M4 9h16M9 4v16M14 4v16M4 14h16"/></svg></div>
               <div>
-                <h4 class="shield-title">Vertical Specialization.</h4>
-                <p class="shield-body">Deep focus on the <em>highest-value bottlenecks</em>: rare-earth substitutes, copper alternatives.</p>
-              </div>
-            </div>
-            <div class="shield" data-anim style="--d: 0.6s">
-              <div class="shield-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
-              <div>
-                <h4 class="shield-title">Asset-light architecture.</h4>
-                <p class="shield-body">No factories. No capital-intensive production. <em>We sell the recipe.</em></p>
+                <h4 class="shield-title">Patent wall &middot; asset-light.</h4>
+                <p class="shield-body">Composition-of-matter patents on validated <em>physical molecules</em>. We sell the recipe, not the factory.</p>
               </div>
             </div>
           </div>
