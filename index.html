@@ -81,11 +81,11 @@ a { color: inherit; text-decoration: none; }
 .chrome > * { pointer-events: auto; }
 
 .brand-logo {
-  height: 120px;
+  height: 150px;
   display: block;
   transition: filter 0.4s;
 }
-@media (max-width: 720px) { .brand-logo { height: 64px; } }
+@media (max-width: 720px) { .brand-logo { height: 72px; } }
 .dark-slide-active .brand-logo { filter: invert(1); }
 
 .crumb {
@@ -200,7 +200,7 @@ a { color: inherit; text-decoration: none; }
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 11rem 4rem 7rem;
+  padding: 13rem 4rem 7rem;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.55s ease, visibility 0.55s;
@@ -308,12 +308,11 @@ a { color: inherit; text-decoration: none; }
   font-family: var(--serif);
   font-variation-settings: "opsz" 144, "SOFT" 30, "WONK" 1;
   font-weight: 350;
-  font-size: clamp(3rem, 10vw, 10rem);
-  line-height: 1;
+  font-size: clamp(4rem, 13vw, 13rem);
+  line-height: 0.95;
   letter-spacing: -0.04em;
   margin: 0;
   color: var(--ink);
-  white-space: nowrap;
 }
 .title-display .ai {
   font-style: italic;
@@ -511,15 +510,24 @@ a { color: inherit; text-decoration: none; }
   margin-bottom: 0.4rem;
   letter-spacing: -0.04em;
 }
-.challenge-stat-big small,
-.challenge-stat-big sup {
+.challenge-stat-big small {
   font-size: 0.32em;
   font-family: var(--mono);
   color: var(--rust);
   font-weight: 700;
   letter-spacing: 0;
   vertical-align: 0.7em;
-  margin-left: 0.05em;
+  margin-left: 0.25em;
+}
+.challenge-stat-big sup {
+  font-size: 0.5em;
+  font-family: var(--serif);
+  color: var(--rust);
+  font-weight: 400;
+  letter-spacing: 0;
+  vertical-align: 0.55em;
+  margin-left: 0.04em;
+  font-style: italic;
 }
 .challenge-stat-sub {
   font-family: var(--mono);
@@ -534,11 +542,12 @@ a { color: inherit; text-decoration: none; }
 }
 .challenge-title {
   font-family: var(--serif);
-  font-size: 1.6rem;
+  font-size: clamp(1.1rem, 1.4vw, 1.6rem);
   line-height: 1.15;
   font-weight: 500;
   color: var(--ink);
   margin: 0;
+  white-space: nowrap;
 }
 .challenge:hover .challenge-stat { color: var(--ink); }
 
@@ -549,7 +558,7 @@ a { color: inherit; text-decoration: none; }
   gap: 1rem;
   min-height: 0;
 }
-.s-solution .h-display { font-size: clamp(1.8rem, 3.4vw, 3.4rem); }
+.s-solution .h-display { font-size: clamp(2.2rem, 4.5vw, 4.5rem); }
 .s-solution .h-display em { box-shadow: 4px 4px 0 var(--lime); }
 .s-solution .eyebrow { margin-bottom: 0.85rem; }
 
@@ -560,10 +569,10 @@ a { color: inherit; text-decoration: none; }
   align-items: end;
 }
 .solution-head p {
-  font-size: 1.2rem;
-  line-height: 1.5;
+  font-size: clamp(1.2rem, 1.6vw, 1.7rem);
+  line-height: 1.4;
   color: var(--paper-3);
-  max-width: 42ch;
+  max-width: 36ch;
   margin: 0;
 }
 .solution-head p strong { color: var(--lime); font-weight: 600; }
@@ -639,14 +648,14 @@ a { color: inherit; text-decoration: none; }
 .fly-rotate { transform-origin: center; animation: spin 50s linear infinite; }
 @keyframes spin { to { transform: rotate(360deg); } }
 
-.shields { display: grid; gap: 0.65rem; align-content: center; }
+.shields { display: grid; gap: 0.9rem; align-content: center; }
 .shield {
-  padding: 0.85rem 1.1rem;
+  padding: 1.1rem 1.4rem;
   background: var(--paper-2);
   border: 1.5px solid var(--ink);
   display: grid;
   grid-template-columns: auto 1fr;
-  gap: 0.9rem;
+  gap: 1.1rem;
   align-items: start;
   transition: all 0.3s;
 }
@@ -655,7 +664,7 @@ a { color: inherit; text-decoration: none; }
 .shield:hover .shield-title, .shield:hover .shield-body { color: var(--paper); }
 .shield:hover .shield-body em { color: var(--lime); }
 .shield-icon {
-  width: 48px; height: 54px;
+  width: 60px; height: 68px;
   border: 1.5px solid var(--ink);
   color: var(--ink);
   display: grid; place-items: center;
@@ -663,9 +672,9 @@ a { color: inherit; text-decoration: none; }
   flex-shrink: 0;
   transition: all 0.3s;
 }
-.shield-icon svg { width: 24px; height: 24px; }
-.shield-title { font-family: var(--serif); font-size: 1.3rem; color: var(--ink); margin: 0 0 0.35rem; line-height: 1.2; font-weight: 500; }
-.shield-body { font-size: 1.02rem; line-height: 1.4; color: var(--ink-2); margin: 0; }
+.shield-icon svg { width: 28px; height: 28px; }
+.shield-title { font-family: var(--serif); font-size: clamp(1.4rem, 1.7vw, 1.8rem); color: var(--ink); margin: 0 0 0.45rem; line-height: 1.15; font-weight: 500; }
+.shield-body { font-size: clamp(1.05rem, 1.25vw, 1.3rem); line-height: 1.4; color: var(--ink-2); margin: 0; }
 .shield-body em { color: var(--rust); font-style: normal; font-weight: 700; }
 
 .bottom-line {
@@ -777,16 +786,16 @@ a { color: inherit; text-decoration: none; }
 .biz-card.span-12 { grid-column: span 12; }
 .biz-tag {
   font-family: var(--mono);
-  font-size: 0.95rem;
+  font-size: clamp(0.95rem, 1.1vw, 1.15rem);
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--ink-2);
-  margin-bottom: 0.95rem;
+  margin-bottom: 1.1rem;
   font-weight: 700;
 }
 .biz-title {
   font-family: var(--serif);
-  font-size: 1.55rem;
+  font-size: clamp(1.55rem, 2vw, 2.1rem);
   line-height: 1.2;
   font-weight: 500;
   color: var(--ink);
@@ -798,8 +807,8 @@ a { color: inherit; text-decoration: none; }
   color: var(--ink);
 }
 .biz-body {
-  font-size: 1.1rem;
-  line-height: 1.45;
+  font-size: clamp(1.1rem, 1.3vw, 1.4rem);
+  line-height: 1.4;
   color: var(--ink-2);
   margin: 0;
 }
@@ -929,24 +938,24 @@ a { color: inherit; text-decoration: none; }
 
 /* shorter viewports (laptops, 1366×768 projectors) — compress everything */
 @media (max-height: 850px) {
-  .slide { padding: 8rem 3rem 5.25rem; }
+  .slide { padding: 9.5rem 3rem 5.25rem; }
   .h-display { font-size: clamp(1.8rem, 4.6vw, 4rem); }
-  .s-solution .h-display { font-size: clamp(1.5rem, 2.8vw, 2.6rem); }
+  .s-solution .h-display { font-size: clamp(1.8rem, 3.6vw, 3.2rem); }
   .title-display { font-size: clamp(2.5rem, 8.5vw, 7.5rem); }
   .title-tagline { font-size: clamp(1.1rem, 1.9vw, 1.7rem); margin-top: 1.25rem; }
   .eyebrow { font-size: 0.9rem; margin-bottom: 1rem; }
   .section-title { font-size: clamp(1.8rem, 4.5vw, 4rem); }
-  .brand-logo { height: 84px; }
+  .brand-logo { height: 110px; }
 
   .challenge { padding: 1.1rem 1.15rem; }
   .challenge-num { font-size: 0.8rem; margin-bottom: 1rem; }
   .challenge-stat-big { font-size: clamp(2.8rem, 4.8vw, 4.5rem); }
   .challenge-stat-sub { font-size: 0.75rem; margin-bottom: 1rem; padding-bottom: 0.85rem; }
-  .challenge-title { font-size: 1.25rem; }
+  .challenge-title { font-size: clamp(0.95rem, 1.2vw, 1.3rem); }
 
   .s-solution .slide-inner { gap: 0.5rem; }
   .solution-head { gap: 1.5rem; align-items: start; }
-  .solution-head p { font-size: 0.95rem; }
+  .solution-head p { font-size: clamp(1rem, 1.4vw, 1.4rem); }
   .loop-node-card { width: clamp(135px, 14.5%, 200px); padding: 0.55rem 0.7rem; }
   .loop-node-num { font-size: 0.72rem; }
   .loop-node-title { font-size: 0.95rem; margin: 0.15rem 0 0.25rem; }
@@ -955,12 +964,12 @@ a { color: inherit; text-decoration: none; }
   .s-moat .slide-inner { gap: 1rem; }
   .moat-body { gap: 2rem; }
   .flywheel { max-width: 360px; }
-  .shields { gap: 0.5rem; }
-  .shield { padding: 0.55rem 0.9rem; }
-  .shield-icon { width: 36px; height: 40px; }
-  .shield-icon svg { width: 16px; height: 16px; }
-  .shield-title { font-size: 0.95rem; margin-bottom: 0.15rem; }
-  .shield-body { font-size: 0.78rem; line-height: 1.3; }
+  .shields { gap: 0.7rem; }
+  .shield { padding: 0.85rem 1.1rem; gap: 0.95rem; }
+  .shield-icon { width: 48px; height: 54px; }
+  .shield-icon svg { width: 22px; height: 22px; }
+  .shield-title { font-size: clamp(1.15rem, 1.5vw, 1.5rem); margin-bottom: 0.3rem; }
+  .shield-body { font-size: clamp(0.92rem, 1.1vw, 1.15rem); line-height: 1.35; }
   .bottom-line { padding: 0.85rem 1.5rem; }
   .bl-num { font-size: clamp(2rem, 4vw, 3.2rem); margin-bottom: 0.15rem; }
   .bl-lbl { font-size: 0.85rem; }
@@ -969,16 +978,16 @@ a { color: inherit; text-decoration: none; }
   .tl-marker { margin-top: 42px; }
   .timeline::before { top: 50px; }
 
-  .s-business .slide-inner { gap: 1.25rem; }
-  .biz-grid { gap: 0.6rem; }
-  .biz-card { padding: 0.85rem 1rem; }
-  .biz-tag { font-size: 0.72rem; margin-bottom: 0.45rem; letter-spacing: 0.15em; }
-  .biz-title { font-size: 1rem; margin-bottom: 0.45rem; line-height: 1.18; }
-  .biz-body { font-size: 0.82rem; line-height: 1.35; }
-  .biz-num { font-size: clamp(1.8rem, 3vw, 2.6rem); }
-  .biz-pipeline { font-size: 0.72rem; margin-top: 0.5rem; gap: 0.4rem; }
-  .biz-pipeline span:not(.biz-pipeline-arrow) { padding: 0.3rem 0.55rem; }
-  .biz-pipeline-arrow { font-size: 1rem; }
+  .s-business .slide-inner { gap: 1.5rem; }
+  .biz-grid { gap: 0.85rem; }
+  .biz-card { padding: 1.15rem 1.35rem; }
+  .biz-tag { font-size: clamp(0.85rem, 1vw, 1.05rem); margin-bottom: 0.7rem; letter-spacing: 0.15em; }
+  .biz-title { font-size: clamp(1.25rem, 1.5vw, 1.6rem); margin-bottom: 0.6rem; line-height: 1.2; }
+  .biz-body { font-size: clamp(1rem, 1.15vw, 1.2rem); line-height: 1.4; }
+  .biz-num { font-size: clamp(2rem, 3.4vw, 3rem); }
+  .biz-pipeline { font-size: clamp(0.85rem, 1vw, 1.05rem); margin-top: 0.7rem; gap: 0.55rem; }
+  .biz-pipeline span:not(.biz-pipeline-arrow) { padding: 0.45rem 0.85rem; }
+  .biz-pipeline-arrow { font-size: 1.2rem; }
 
   .team-card { padding: 1rem 0.75rem 1.25rem; gap: 0.85rem; }
   .team-sym { font-size: clamp(3rem, 6vw, 5rem); }
@@ -1027,7 +1036,7 @@ a { color: inherit; text-decoration: none; }
       <div class="floats" id="floats"></div>
       <div class="title-wrap">
         <h1 class="title-display" data-anim style="--d: 0.1s">
-          T<span class="ai">AI</span>lored minerals
+          T<span class="ai">AI</span>lored<br>minerals
         </h1>
         <p class="title-tagline" data-anim style="--d: 0.55s">
           Critical materials, designed. Not discovered.
@@ -1042,22 +1051,22 @@ a { color: inherit; text-decoration: none; }
           <div class="eyebrow" data-anim>01 / The Problem</div>
           <h2 class="h-display" data-anim style="--d: 0.1s">Rare minerals<br>are getting <em class="rust">more expensive</em>.</h2>
           <p class="problem-strap" data-anim style="--d: 0.25s">
-            Between <strong>2020 and 2022</strong>, lithium rose <mark>~8&times;</mark>, neodymium <mark>~4&times;</mark>, cobalt and dysprosium doubled. The world needs <strong>substitutes</strong>. Or entirely <strong>new materials</strong> that meet the same need.
+            From <strong>2020 to 2026</strong>, lithium spiked <mark>8&times;</mark>, neodymium <mark>4&times;</mark>, dysprosium doubled. China&rsquo;s <strong>2023&ndash;24 export curbs</strong> on gallium, graphite and rare-earth tech triggered a fresh wave. The world needs <strong>substitutes</strong>.
           </p>
         </div>
 
         <div class="problem-viz" data-anim="scale" style="--d: 0.35s">
           <div class="crosshair tl"></div><div class="crosshair tr"></div>
           <div class="crosshair bl"></div><div class="crosshair br"></div>
-          <div class="viz-label tl">Peak price multiplier &middot; 2020 &rarr; 2022</div>
+          <div class="viz-label tl">Peak price multiplier &middot; 2020 &rarr; 2026</div>
           <div class="bars" id="bars">
             <div class="bar-col"><div class="bar-area"><div class="bar crit" data-h="92%"><span class="bar-val">8&times;</span></div></div><div class="bar-lbl">Li</div><div class="bar-sub">Lithium</div></div>
             <div class="bar-col"><div class="bar-area"><div class="bar crit" data-h="46%"><span class="bar-val">4&times;</span></div></div><div class="bar-lbl">Nd</div><div class="bar-sub">Neodymium</div></div>
+            <div class="bar-col"><div class="bar-area"><div class="bar crit" data-h="32%"><span class="bar-val">2.5&times;</span></div></div><div class="bar-lbl">Ga</div><div class="bar-sub">Gallium</div></div>
             <div class="bar-col"><div class="bar-area"><div class="bar" data-h="26%"><span class="bar-val">2.2&times;</span></div></div><div class="bar-lbl">Dy</div><div class="bar-sub">Dysprosium</div></div>
-            <div class="bar-col"><div class="bar-area"><div class="bar" data-h="24%"><span class="bar-val">2&times;</span></div></div><div class="bar-lbl">Co</div><div class="bar-sub">Cobalt</div></div>
-            <div class="bar-col"><div class="bar-area"><div class="bar" data-h="20%"><span class="bar-val">1.6&times;</span></div></div><div class="bar-lbl">Ni</div><div class="bar-sub">Nickel</div></div>
+            <div class="bar-col"><div class="bar-area"><div class="bar" data-h="22%"><span class="bar-val">1.8&times;</span></div></div><div class="bar-lbl">C</div><div class="bar-sub">Graphite</div></div>
           </div>
-          <div class="viz-source">Sources: IEA <em>Critical Minerals Market Review</em> 2024 &middot; USGS <em>Mineral Commodity Summaries</em> 2024</div>
+          <div class="viz-source">Sources: IEA <em>Critical Minerals Market Review</em> 2025 &middot; USGS <em>Mineral Commodity Summaries</em> 2025 &middot; Reuters &middot; Bloomberg, 2020&ndash;2026</div>
         </div>
       </div>
     </section>
@@ -1073,27 +1082,27 @@ a { color: inherit; text-decoration: none; }
         <div class="challenges">
           <div class="challenge" data-anim style="--d: 0.25s">
             <div class="challenge-num">CHALLENGE 01</div>
-            <div class="challenge-stat-big">10<small>yrs</small></div>
+            <div class="challenge-stat-big">10 <small>yrs</small></div>
             <div class="challenge-stat-sub">$500M / 1 alloy</div>
-            <h3 class="challenge-title">Slow.<br>Expensive.</h3>
+            <h3 class="challenge-title">Slow &amp; expensive.</h3>
           </div>
           <div class="challenge" data-anim style="--d: 0.35s">
             <div class="challenge-num">CHALLENGE 02</div>
             <div class="challenge-stat-big">10<sup>60</sup></div>
             <div class="challenge-stat-sub">possible combinations</div>
-            <h3 class="challenge-title">Needle in<br>a haystack.</h3>
+            <h3 class="challenge-title">Needle, haystack.</h3>
           </div>
           <div class="challenge" data-anim style="--d: 0.45s">
             <div class="challenge-num">CHALLENGE 03</div>
-            <div class="challenge-stat-big">90<small>%</small></div>
+            <div class="challenge-stat-big">90 <small>%</small></div>
             <div class="challenge-stat-sub">of leads fail in lab</div>
-            <h3 class="challenge-title">Predict<br>&ne; prove.</h3>
+            <h3 class="challenge-title">Predict &ne; prove.</h3>
           </div>
           <div class="challenge" data-anim style="--d: 0.55s">
             <div class="challenge-num">CHALLENGE 04</div>
             <div class="challenge-stat-big">1<small>/12</small></div>
             <div class="challenge-stat-sub">reaches the market</div>
-            <h3 class="challenge-title">Capital<br>incinerator.</h3>
+            <h3 class="challenge-title">Capital sink.</h3>
           </div>
         </div>
       </div>
@@ -1105,10 +1114,10 @@ a { color: inherit; text-decoration: none; }
         <div class="solution-head">
           <div>
             <div class="eyebrow" data-anim>03 / The Solution</div>
-            <h2 class="h-display" data-anim style="--d: 0.1s">Two halves.<br>One missing <em>bridge</em>.</h2>
+            <h2 class="h-display" data-anim style="--d: 0.1s">The missing <em>bridge</em>.</h2>
           </div>
           <p data-anim style="--d: 0.25s">
-            <strong>Generative AI</strong> can now design new materials. <strong>Robotic labs</strong> can now synthesize them at scale. Today the loop between them runs through human chemists. Slow, manual, and every lab failure is thrown away. <strong>We close the loop with AI. And we keep the failures.</strong>
+            <strong>AI designs.</strong> <strong>Robots make.</strong> We close the loop in between. Every failure trains the model.
           </p>
         </div>
 
@@ -1135,8 +1144,8 @@ a { color: inherit; text-decoration: none; }
             <!-- LEFT PILLAR — Generative AI -->
             <g>
               <rect x="40" y="150" width="260" height="320" fill="#14130f" stroke="#efe9d9" stroke-width="1.5" opacity="0.95"/>
-              <text x="170" y="195" text-anchor="middle" fill="#7a7062" font-family="JetBrains Mono" font-size="13" letter-spacing="3" font-weight="700">EXISTS TODAY</text>
-              <line x1="80" y1="215" x2="260" y2="215" stroke="#c4e028" stroke-width="1.5" opacity="0.4"/>
+              <text x="170" y="200" text-anchor="middle" fill="#7a7062" font-family="JetBrains Mono" font-size="16" letter-spacing="3" font-weight="700">EXISTS TODAY</text>
+              <line x1="80" y1="222" x2="260" y2="222" stroke="#c4e028" stroke-width="1.5" opacity="0.4"/>
 
               <!-- network/AI icon -->
               <g transform="translate(170 270)" stroke="#c4e028" stroke-width="2" fill="none">
@@ -1352,7 +1361,7 @@ a { color: inherit; text-decoration: none; }
       <div class="slide-inner">
         <div>
           <div class="eyebrow" data-anim>06 / Business Model</div>
-          <h2 class="h-display" data-anim style="--d: 0.1s">Materials, on demand.<br>Like <em>pharma</em>.</h2>
+          <h2 class="h-display" data-anim style="--d: 0.1s">Materials,<br>on <em>demand</em>.</h2>
         </div>
 
         <div class="biz-grid">
