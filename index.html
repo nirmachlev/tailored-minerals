@@ -72,6 +72,11 @@ a { color: inherit; text-decoration: none; }
   padding: 1rem 2rem;
   z-index: 50;
   pointer-events: none;
+  background: linear-gradient(to bottom, var(--paper) 0%, var(--paper) 92%, transparent);
+  transition: background 0.4s;
+}
+.dark-slide-active .chrome {
+  background: linear-gradient(to bottom, var(--ink) 0%, var(--ink) 92%, transparent);
 }
 .chrome > * { pointer-events: auto; }
 
@@ -125,6 +130,11 @@ a { color: inherit; text-decoration: none; }
   letter-spacing: 0.15em;
   text-transform: uppercase;
   font-weight: 600;
+  background: linear-gradient(to top, var(--paper) 0%, var(--paper) 92%, transparent);
+  transition: background 0.4s;
+}
+.dark-slide-active .dock {
+  background: linear-gradient(to top, var(--ink) 0%, var(--ink) 92%, transparent);
 }
 .dock-left { color: var(--ink-3); transition: color 0.4s; }
 .dark-slide-active .dock-left { color: var(--ink-4); }
@@ -194,6 +204,7 @@ a { color: inherit; text-decoration: none; }
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.55s ease, visibility 0.55s;
+  overflow: hidden;
 }
 .slide.active { opacity: 1; visibility: visible; transition-delay: 0.05s; }
 
@@ -460,13 +471,12 @@ a { color: inherit; text-decoration: none; }
   gap: 1rem;
 }
 .challenge {
-  padding: 1.75rem 1.5rem;
+  padding: 1.5rem 1.4rem;
   background: var(--paper-2);
   border: 1.5px solid var(--ink);
   position: relative;
   transition: all 0.35s;
   display: flex; flex-direction: column;
-  min-height: 360px;
 }
 .challenge:hover { background: var(--lime); transform: translate(-4px,-4px); box-shadow: 8px 8px 0 var(--ink); }
 .challenge-num {
@@ -902,6 +912,75 @@ a { color: inherit; text-decoration: none; }
 }
 @keyframes hintIn { to { opacity: 1; } }
 @keyframes hintOut { to { opacity: 0; } }
+
+/* shorter viewports (laptops, 1366×768 projectors) — compress everything */
+@media (max-height: 850px) {
+  .slide { padding: 6.5rem 3rem 5.25rem; }
+  .h-display { font-size: clamp(1.8rem, 4.6vw, 4rem); }
+  .s-solution .h-display { font-size: clamp(1.5rem, 2.8vw, 2.6rem); }
+  .title-display { font-size: clamp(3rem, 11vw, 9rem); }
+  .title-tagline { font-size: clamp(1.1rem, 1.9vw, 1.7rem); margin-top: 1.25rem; }
+  .eyebrow { font-size: 0.9rem; margin-bottom: 1rem; }
+  .section-title { font-size: clamp(1.8rem, 4.5vw, 4rem); }
+  .brand-logo { height: 60px; }
+
+  .challenge { padding: 1rem 1.05rem; }
+  .challenge-num { font-size: 0.78rem; margin-bottom: 0.6rem; }
+  .challenge-icon { font-size: 2.2rem; margin-bottom: 0.7rem; }
+  .challenge-title { font-size: 1.2rem; margin: 0 0 0.5rem; }
+  .challenge-body { font-size: 0.88rem; line-height: 1.4; }
+  .challenge-stat { font-size: 0.8rem; padding-top: 0.65rem; margin-top: 0.7rem; }
+
+  .s-solution .slide-inner { gap: 0.5rem; }
+  .solution-head { gap: 1.5rem; align-items: start; }
+  .solution-head p { font-size: 0.95rem; }
+  .loop-node-card { width: clamp(135px, 14.5%, 200px); padding: 0.55rem 0.7rem; }
+  .loop-node-num { font-size: 0.72rem; }
+  .loop-node-title { font-size: 0.95rem; margin: 0.15rem 0 0.25rem; }
+  .loop-node-body { font-size: 0.78rem; line-height: 1.35; }
+
+  .s-moat .slide-inner { gap: 1rem; }
+  .moat-body { gap: 2rem; }
+  .flywheel { max-width: 360px; }
+  .shield { padding: 0.65rem 0.95rem; }
+  .shield-icon { width: 38px; height: 44px; }
+  .shield-icon svg { width: 18px; height: 18px; }
+  .shield-title { font-size: 1.05rem; margin-bottom: 0.18rem; }
+  .shield-body { font-size: 0.85rem; line-height: 1.35; }
+  .bottom-line { padding: 0.85rem 1.5rem; }
+  .bl-num { font-size: clamp(2rem, 4vw, 3.2rem); margin-bottom: 0.15rem; }
+  .bl-lbl { font-size: 0.85rem; }
+
+  .tl-title { font-size: 1.4rem; margin: 1rem 0 0.5rem; }
+  .tl-body { font-size: 0.9rem; line-height: 1.4; }
+  .tl-marker { margin-top: 42px; }
+  .timeline::before { top: 50px; }
+
+  .s-business .slide-inner { gap: 1.25rem; }
+  .biz-grid { gap: 0.6rem; }
+  .biz-card { padding: 0.85rem 1rem; }
+  .biz-tag { font-size: 0.72rem; margin-bottom: 0.45rem; letter-spacing: 0.15em; }
+  .biz-title { font-size: 1rem; margin-bottom: 0.45rem; line-height: 1.18; }
+  .biz-body { font-size: 0.82rem; line-height: 1.35; }
+  .biz-num { font-size: clamp(1.8rem, 3vw, 2.6rem); }
+  .biz-pipeline { font-size: 0.72rem; margin-top: 0.5rem; gap: 0.4rem; }
+  .biz-pipeline span:not(.biz-pipeline-arrow) { padding: 0.3rem 0.55rem; }
+  .biz-pipeline-arrow { font-size: 1rem; }
+
+  .team-card { padding: 1rem 0.75rem 1.25rem; gap: 0.85rem; }
+  .team-sym { font-size: clamp(3rem, 6vw, 5rem); }
+  .team-name { font-size: clamp(1rem, 1.3vw, 1.3rem); }
+  .team-role { font-size: 0.78rem; }
+
+  .elem { width: 92px; height: 110px; padding: 0.4rem 0.55rem; box-shadow: 4px 4px 0 var(--ink); }
+  .elem-num { font-size: 0.72rem; }
+  .elem-sym { font-size: 2.1rem; margin-top: 0.35rem; }
+  .elem-name { font-size: 0.6rem; margin-top: 0.4rem; }
+  .elem-mass { font-size: 0.6rem; }
+
+  .dock { font-size: 0.85rem; padding: 0.85rem 2rem; }
+  .dock-btn { width: 40px; height: 40px; font-size: 1rem; }
+}
 
 /* responsive (desk small) */
 @media (max-width: 980px) {
@@ -1380,14 +1459,14 @@ a { color: inherit; text-decoration: none; }
     { num: 65, sym: 'Tb', name: 'Terbium',      mass: '158.93' },
     { num: 63, sym: 'Eu', name: 'Europium',     mass: '151.96' },
   ];
-  // positioned to avoid the centered hero title (left ~60% of slide)
+  // positioned to clear hero title + chrome top/bottom (max y ≈ 70%)
   const POSITIONS = [
-    { x: 86, y: 12, d: 0,   s: 0.85 },
-    { x: 92, y: 38, d: 1.5, s: 0.6  },
-    { x: 80, y: 64, d: 3,   s: 0.75 },
-    { x: 88, y: 88, d: 4.5, s: 0.65 },
-    { x: 4,  y: 14, d: 2.2, s: 0.55 },
-    { x: 60, y: 92, d: 5.5, s: 0.6  },
+    { x: 86, y: 14, d: 0,   s: 0.9  },
+    { x: 92, y: 36, d: 1.5, s: 0.65 },
+    { x: 84, y: 58, d: 3,   s: 0.78 },
+    { x: 90, y: 76, d: 4.5, s: 0.6  },
+    { x: 3,  y: 16, d: 2.2, s: 0.6  },
+    { x: 6,  y: 70, d: 5.5, s: 0.55 },
   ];
   const floatsEl = document.getElementById('floats');
   POSITIONS.forEach((p, i) => {
